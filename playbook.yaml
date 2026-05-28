@@ -23,11 +23,6 @@
         line: "APP_DEBUG=false"
       when: project_env == "production"
 
-    - name: Run artisan migrate
-      shell: 'php artisan migrate --force --isolated'
-      args:
-        chdir: "{{ app_directory }}"
-
     - name: start supervisor
       no_log: True
       systemd:
